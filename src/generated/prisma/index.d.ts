@@ -14,11 +14,6 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model tbl_product
- * 
- */
-export type tbl_product = $Result.DefaultSelection<Prisma.$tbl_productPayload>
-/**
  * Model tbl_sample_user
  * 
  */
@@ -36,8 +31,8 @@ export type tbl_todo = $Result.DefaultSelection<Prisma.$tbl_todoPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Tbl_products
- * const tbl_products = await prisma.tbl_product.findMany()
+ * // Fetch zero or more Tbl_sample_users
+ * const tbl_sample_users = await prisma.tbl_sample_user.findMany()
  * ```
  *
  *
@@ -57,8 +52,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Tbl_products
-   * const tbl_products = await prisma.tbl_product.findMany()
+   * // Fetch zero or more Tbl_sample_users
+   * const tbl_sample_users = await prisma.tbl_sample_user.findMany()
    * ```
    *
    *
@@ -155,16 +150,6 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.tbl_product`: Exposes CRUD operations for the **tbl_product** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Tbl_products
-    * const tbl_products = await prisma.tbl_product.findMany()
-    * ```
-    */
-  get tbl_product(): Prisma.tbl_productDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.tbl_sample_user`: Exposes CRUD operations for the **tbl_sample_user** model.
     * Example usage:
     * ```ts
@@ -623,7 +608,6 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    tbl_product: 'tbl_product',
     tbl_sample_user: 'tbl_sample_user',
     tbl_todo: 'tbl_todo'
   };
@@ -644,76 +628,10 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tbl_product" | "tbl_sample_user" | "tbl_todo"
+      modelProps: "tbl_sample_user" | "tbl_todo"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      tbl_product: {
-        payload: Prisma.$tbl_productPayload<ExtArgs>
-        fields: Prisma.tbl_productFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.tbl_productFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.tbl_productFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          findFirst: {
-            args: Prisma.tbl_productFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.tbl_productFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          findMany: {
-            args: Prisma.tbl_productFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>[]
-          }
-          create: {
-            args: Prisma.tbl_productCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          createMany: {
-            args: Prisma.tbl_productCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.tbl_productDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          update: {
-            args: Prisma.tbl_productUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          deleteMany: {
-            args: Prisma.tbl_productDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.tbl_productUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.tbl_productUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$tbl_productPayload>
-          }
-          aggregate: {
-            args: Prisma.Tbl_productAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTbl_product>
-          }
-          groupBy: {
-            args: Prisma.tbl_productGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Tbl_productGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.tbl_productCountArgs<ExtArgs>
-            result: $Utils.Optional<Tbl_productCountAggregateOutputType> | number
-          }
-        }
-      }
       tbl_sample_user: {
         payload: Prisma.$tbl_sample_userPayload<ExtArgs>
         fields: Prisma.tbl_sample_userFieldRefs
@@ -930,7 +848,6 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    tbl_product?: tbl_productOmit
     tbl_sample_user?: tbl_sample_userOmit
     tbl_todo?: tbl_todoOmit
   }
@@ -1026,926 +943,6 @@ export namespace Prisma {
   /**
    * Models
    */
-
-  /**
-   * Model tbl_product
-   */
-
-  export type AggregateTbl_product = {
-    _count: Tbl_productCountAggregateOutputType | null
-    _avg: Tbl_productAvgAggregateOutputType | null
-    _sum: Tbl_productSumAggregateOutputType | null
-    _min: Tbl_productMinAggregateOutputType | null
-    _max: Tbl_productMaxAggregateOutputType | null
-  }
-
-  export type Tbl_productAvgAggregateOutputType = {
-    pno: number | null
-    price: number | null
-  }
-
-  export type Tbl_productSumAggregateOutputType = {
-    pno: bigint | null
-    price: number | null
-  }
-
-  export type Tbl_productMinAggregateOutputType = {
-    pno: bigint | null
-    del_flag: boolean | null
-    pdesc: string | null
-    pname: string | null
-    price: number | null
-  }
-
-  export type Tbl_productMaxAggregateOutputType = {
-    pno: bigint | null
-    del_flag: boolean | null
-    pdesc: string | null
-    pname: string | null
-    price: number | null
-  }
-
-  export type Tbl_productCountAggregateOutputType = {
-    pno: number
-    del_flag: number
-    pdesc: number
-    pname: number
-    price: number
-    _all: number
-  }
-
-
-  export type Tbl_productAvgAggregateInputType = {
-    pno?: true
-    price?: true
-  }
-
-  export type Tbl_productSumAggregateInputType = {
-    pno?: true
-    price?: true
-  }
-
-  export type Tbl_productMinAggregateInputType = {
-    pno?: true
-    del_flag?: true
-    pdesc?: true
-    pname?: true
-    price?: true
-  }
-
-  export type Tbl_productMaxAggregateInputType = {
-    pno?: true
-    del_flag?: true
-    pdesc?: true
-    pname?: true
-    price?: true
-  }
-
-  export type Tbl_productCountAggregateInputType = {
-    pno?: true
-    del_flag?: true
-    pdesc?: true
-    pname?: true
-    price?: true
-    _all?: true
-  }
-
-  export type Tbl_productAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which tbl_product to aggregate.
-     */
-    where?: tbl_productWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of tbl_products to fetch.
-     */
-    orderBy?: tbl_productOrderByWithRelationInput | tbl_productOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: tbl_productWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` tbl_products from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` tbl_products.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned tbl_products
-    **/
-    _count?: true | Tbl_productCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Tbl_productAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Tbl_productSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Tbl_productMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Tbl_productMaxAggregateInputType
-  }
-
-  export type GetTbl_productAggregateType<T extends Tbl_productAggregateArgs> = {
-        [P in keyof T & keyof AggregateTbl_product]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTbl_product[P]>
-      : GetScalarType<T[P], AggregateTbl_product[P]>
-  }
-
-
-
-
-  export type tbl_productGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: tbl_productWhereInput
-    orderBy?: tbl_productOrderByWithAggregationInput | tbl_productOrderByWithAggregationInput[]
-    by: Tbl_productScalarFieldEnum[] | Tbl_productScalarFieldEnum
-    having?: tbl_productScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Tbl_productCountAggregateInputType | true
-    _avg?: Tbl_productAvgAggregateInputType
-    _sum?: Tbl_productSumAggregateInputType
-    _min?: Tbl_productMinAggregateInputType
-    _max?: Tbl_productMaxAggregateInputType
-  }
-
-  export type Tbl_productGroupByOutputType = {
-    pno: bigint
-    del_flag: boolean
-    pdesc: string | null
-    pname: string | null
-    price: number
-    _count: Tbl_productCountAggregateOutputType | null
-    _avg: Tbl_productAvgAggregateOutputType | null
-    _sum: Tbl_productSumAggregateOutputType | null
-    _min: Tbl_productMinAggregateOutputType | null
-    _max: Tbl_productMaxAggregateOutputType | null
-  }
-
-  type GetTbl_productGroupByPayload<T extends tbl_productGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Tbl_productGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Tbl_productGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Tbl_productGroupByOutputType[P]>
-            : GetScalarType<T[P], Tbl_productGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type tbl_productSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    pno?: boolean
-    del_flag?: boolean
-    pdesc?: boolean
-    pname?: boolean
-    price?: boolean
-  }, ExtArgs["result"]["tbl_product"]>
-
-
-
-  export type tbl_productSelectScalar = {
-    pno?: boolean
-    del_flag?: boolean
-    pdesc?: boolean
-    pname?: boolean
-    price?: boolean
-  }
-
-  export type tbl_productOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"pno" | "del_flag" | "pdesc" | "pname" | "price", ExtArgs["result"]["tbl_product"]>
-
-  export type $tbl_productPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "tbl_product"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      pno: bigint
-      del_flag: boolean
-      pdesc: string | null
-      pname: string | null
-      price: number
-    }, ExtArgs["result"]["tbl_product"]>
-    composites: {}
-  }
-
-  type tbl_productGetPayload<S extends boolean | null | undefined | tbl_productDefaultArgs> = $Result.GetResult<Prisma.$tbl_productPayload, S>
-
-  type tbl_productCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<tbl_productFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Tbl_productCountAggregateInputType | true
-    }
-
-  export interface tbl_productDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tbl_product'], meta: { name: 'tbl_product' } }
-    /**
-     * Find zero or one Tbl_product that matches the filter.
-     * @param {tbl_productFindUniqueArgs} args - Arguments to find a Tbl_product
-     * @example
-     * // Get one Tbl_product
-     * const tbl_product = await prisma.tbl_product.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends tbl_productFindUniqueArgs>(args: SelectSubset<T, tbl_productFindUniqueArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Tbl_product that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {tbl_productFindUniqueOrThrowArgs} args - Arguments to find a Tbl_product
-     * @example
-     * // Get one Tbl_product
-     * const tbl_product = await prisma.tbl_product.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends tbl_productFindUniqueOrThrowArgs>(args: SelectSubset<T, tbl_productFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Tbl_product that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productFindFirstArgs} args - Arguments to find a Tbl_product
-     * @example
-     * // Get one Tbl_product
-     * const tbl_product = await prisma.tbl_product.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends tbl_productFindFirstArgs>(args?: SelectSubset<T, tbl_productFindFirstArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Tbl_product that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productFindFirstOrThrowArgs} args - Arguments to find a Tbl_product
-     * @example
-     * // Get one Tbl_product
-     * const tbl_product = await prisma.tbl_product.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends tbl_productFindFirstOrThrowArgs>(args?: SelectSubset<T, tbl_productFindFirstOrThrowArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Tbl_products that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Tbl_products
-     * const tbl_products = await prisma.tbl_product.findMany()
-     * 
-     * // Get first 10 Tbl_products
-     * const tbl_products = await prisma.tbl_product.findMany({ take: 10 })
-     * 
-     * // Only select the `pno`
-     * const tbl_productWithPnoOnly = await prisma.tbl_product.findMany({ select: { pno: true } })
-     * 
-     */
-    findMany<T extends tbl_productFindManyArgs>(args?: SelectSubset<T, tbl_productFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Tbl_product.
-     * @param {tbl_productCreateArgs} args - Arguments to create a Tbl_product.
-     * @example
-     * // Create one Tbl_product
-     * const Tbl_product = await prisma.tbl_product.create({
-     *   data: {
-     *     // ... data to create a Tbl_product
-     *   }
-     * })
-     * 
-     */
-    create<T extends tbl_productCreateArgs>(args: SelectSubset<T, tbl_productCreateArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Tbl_products.
-     * @param {tbl_productCreateManyArgs} args - Arguments to create many Tbl_products.
-     * @example
-     * // Create many Tbl_products
-     * const tbl_product = await prisma.tbl_product.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends tbl_productCreateManyArgs>(args?: SelectSubset<T, tbl_productCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Tbl_product.
-     * @param {tbl_productDeleteArgs} args - Arguments to delete one Tbl_product.
-     * @example
-     * // Delete one Tbl_product
-     * const Tbl_product = await prisma.tbl_product.delete({
-     *   where: {
-     *     // ... filter to delete one Tbl_product
-     *   }
-     * })
-     * 
-     */
-    delete<T extends tbl_productDeleteArgs>(args: SelectSubset<T, tbl_productDeleteArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Tbl_product.
-     * @param {tbl_productUpdateArgs} args - Arguments to update one Tbl_product.
-     * @example
-     * // Update one Tbl_product
-     * const tbl_product = await prisma.tbl_product.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends tbl_productUpdateArgs>(args: SelectSubset<T, tbl_productUpdateArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Tbl_products.
-     * @param {tbl_productDeleteManyArgs} args - Arguments to filter Tbl_products to delete.
-     * @example
-     * // Delete a few Tbl_products
-     * const { count } = await prisma.tbl_product.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends tbl_productDeleteManyArgs>(args?: SelectSubset<T, tbl_productDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Tbl_products.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Tbl_products
-     * const tbl_product = await prisma.tbl_product.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends tbl_productUpdateManyArgs>(args: SelectSubset<T, tbl_productUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Tbl_product.
-     * @param {tbl_productUpsertArgs} args - Arguments to update or create a Tbl_product.
-     * @example
-     * // Update or create a Tbl_product
-     * const tbl_product = await prisma.tbl_product.upsert({
-     *   create: {
-     *     // ... data to create a Tbl_product
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Tbl_product we want to update
-     *   }
-     * })
-     */
-    upsert<T extends tbl_productUpsertArgs>(args: SelectSubset<T, tbl_productUpsertArgs<ExtArgs>>): Prisma__tbl_productClient<$Result.GetResult<Prisma.$tbl_productPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Tbl_products.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productCountArgs} args - Arguments to filter Tbl_products to count.
-     * @example
-     * // Count the number of Tbl_products
-     * const count = await prisma.tbl_product.count({
-     *   where: {
-     *     // ... the filter for the Tbl_products we want to count
-     *   }
-     * })
-    **/
-    count<T extends tbl_productCountArgs>(
-      args?: Subset<T, tbl_productCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Tbl_productCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Tbl_product.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Tbl_productAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Tbl_productAggregateArgs>(args: Subset<T, Tbl_productAggregateArgs>): Prisma.PrismaPromise<GetTbl_productAggregateType<T>>
-
-    /**
-     * Group by Tbl_product.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {tbl_productGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends tbl_productGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: tbl_productGroupByArgs['orderBy'] }
-        : { orderBy?: tbl_productGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, tbl_productGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTbl_productGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the tbl_product model
-   */
-  readonly fields: tbl_productFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for tbl_product.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__tbl_productClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the tbl_product model
-   */
-  interface tbl_productFieldRefs {
-    readonly pno: FieldRef<"tbl_product", 'BigInt'>
-    readonly del_flag: FieldRef<"tbl_product", 'Boolean'>
-    readonly pdesc: FieldRef<"tbl_product", 'String'>
-    readonly pname: FieldRef<"tbl_product", 'String'>
-    readonly price: FieldRef<"tbl_product", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * tbl_product findUnique
-   */
-  export type tbl_productFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter, which tbl_product to fetch.
-     */
-    where: tbl_productWhereUniqueInput
-  }
-
-  /**
-   * tbl_product findUniqueOrThrow
-   */
-  export type tbl_productFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter, which tbl_product to fetch.
-     */
-    where: tbl_productWhereUniqueInput
-  }
-
-  /**
-   * tbl_product findFirst
-   */
-  export type tbl_productFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter, which tbl_product to fetch.
-     */
-    where?: tbl_productWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of tbl_products to fetch.
-     */
-    orderBy?: tbl_productOrderByWithRelationInput | tbl_productOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for tbl_products.
-     */
-    cursor?: tbl_productWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` tbl_products from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` tbl_products.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of tbl_products.
-     */
-    distinct?: Tbl_productScalarFieldEnum | Tbl_productScalarFieldEnum[]
-  }
-
-  /**
-   * tbl_product findFirstOrThrow
-   */
-  export type tbl_productFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter, which tbl_product to fetch.
-     */
-    where?: tbl_productWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of tbl_products to fetch.
-     */
-    orderBy?: tbl_productOrderByWithRelationInput | tbl_productOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for tbl_products.
-     */
-    cursor?: tbl_productWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` tbl_products from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` tbl_products.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of tbl_products.
-     */
-    distinct?: Tbl_productScalarFieldEnum | Tbl_productScalarFieldEnum[]
-  }
-
-  /**
-   * tbl_product findMany
-   */
-  export type tbl_productFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter, which tbl_products to fetch.
-     */
-    where?: tbl_productWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of tbl_products to fetch.
-     */
-    orderBy?: tbl_productOrderByWithRelationInput | tbl_productOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing tbl_products.
-     */
-    cursor?: tbl_productWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` tbl_products from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` tbl_products.
-     */
-    skip?: number
-    distinct?: Tbl_productScalarFieldEnum | Tbl_productScalarFieldEnum[]
-  }
-
-  /**
-   * tbl_product create
-   */
-  export type tbl_productCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * The data needed to create a tbl_product.
-     */
-    data: XOR<tbl_productCreateInput, tbl_productUncheckedCreateInput>
-  }
-
-  /**
-   * tbl_product createMany
-   */
-  export type tbl_productCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many tbl_products.
-     */
-    data: tbl_productCreateManyInput | tbl_productCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * tbl_product update
-   */
-  export type tbl_productUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * The data needed to update a tbl_product.
-     */
-    data: XOR<tbl_productUpdateInput, tbl_productUncheckedUpdateInput>
-    /**
-     * Choose, which tbl_product to update.
-     */
-    where: tbl_productWhereUniqueInput
-  }
-
-  /**
-   * tbl_product updateMany
-   */
-  export type tbl_productUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update tbl_products.
-     */
-    data: XOR<tbl_productUpdateManyMutationInput, tbl_productUncheckedUpdateManyInput>
-    /**
-     * Filter which tbl_products to update
-     */
-    where?: tbl_productWhereInput
-    /**
-     * Limit how many tbl_products to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * tbl_product upsert
-   */
-  export type tbl_productUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * The filter to search for the tbl_product to update in case it exists.
-     */
-    where: tbl_productWhereUniqueInput
-    /**
-     * In case the tbl_product found by the `where` argument doesn't exist, create a new tbl_product with this data.
-     */
-    create: XOR<tbl_productCreateInput, tbl_productUncheckedCreateInput>
-    /**
-     * In case the tbl_product was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<tbl_productUpdateInput, tbl_productUncheckedUpdateInput>
-  }
-
-  /**
-   * tbl_product delete
-   */
-  export type tbl_productDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-    /**
-     * Filter which tbl_product to delete.
-     */
-    where: tbl_productWhereUniqueInput
-  }
-
-  /**
-   * tbl_product deleteMany
-   */
-  export type tbl_productDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which tbl_products to delete
-     */
-    where?: tbl_productWhereInput
-    /**
-     * Limit how many tbl_products to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * tbl_product without action
-   */
-  export type tbl_productDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tbl_product
-     */
-    select?: tbl_productSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the tbl_product
-     */
-    omit?: tbl_productOmit<ExtArgs> | null
-  }
-
 
   /**
    * Model tbl_sample_user
@@ -2835,11 +1832,11 @@ export namespace Prisma {
   }
 
   export type Tbl_todoSumAggregateOutputType = {
-    tno: bigint | null
+    tno: number | null
   }
 
   export type Tbl_todoMinAggregateOutputType = {
-    tno: bigint | null
+    tno: number | null
     complete: boolean | null
     due_date: Date | null
     title: string | null
@@ -2847,7 +1844,7 @@ export namespace Prisma {
   }
 
   export type Tbl_todoMaxAggregateOutputType = {
-    tno: bigint | null
+    tno: number | null
     complete: boolean | null
     due_date: Date | null
     title: string | null
@@ -2984,7 +1981,7 @@ export namespace Prisma {
   }
 
   export type Tbl_todoGroupByOutputType = {
-    tno: bigint
+    tno: number
     complete: boolean
     due_date: Date | null
     title: string | null
@@ -3034,7 +2031,7 @@ export namespace Prisma {
     name: "tbl_todo"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      tno: bigint
+      tno: number
       complete: boolean
       due_date: Date | null
       title: string | null
@@ -3408,7 +2405,7 @@ export namespace Prisma {
    * Fields of the tbl_todo model
    */
   interface tbl_todoFieldRefs {
-    readonly tno: FieldRef<"tbl_todo", 'BigInt'>
+    readonly tno: FieldRef<"tbl_todo", 'Int'>
     readonly complete: FieldRef<"tbl_todo", 'Boolean'>
     readonly due_date: FieldRef<"tbl_todo", 'DateTime'>
     readonly title: FieldRef<"tbl_todo", 'String'>
@@ -3748,17 +2745,6 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const Tbl_productScalarFieldEnum: {
-    pno: 'pno',
-    del_flag: 'del_flag',
-    pdesc: 'pdesc',
-    pname: 'pname',
-    price: 'price'
-  };
-
-  export type Tbl_productScalarFieldEnum = (typeof Tbl_productScalarFieldEnum)[keyof typeof Tbl_productScalarFieldEnum]
-
-
   export const Tbl_sample_userScalarFieldEnum: {
     uid: 'uid',
     email: 'email',
@@ -3796,14 +2782,6 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-  export const tbl_productOrderByRelevanceFieldEnum: {
-    pdesc: 'pdesc',
-    pname: 'pname'
-  };
-
-  export type tbl_productOrderByRelevanceFieldEnum = (typeof tbl_productOrderByRelevanceFieldEnum)[keyof typeof tbl_productOrderByRelevanceFieldEnum]
-
-
   export const tbl_sample_userOrderByRelevanceFieldEnum: {
     uid: 'uid',
     email: 'email',
@@ -3828,20 +2806,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
-
-
-  /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -3852,6 +2816,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -3871,61 +2842,6 @@ export namespace Prisma {
    * Deep Input Types
    */
 
-
-  export type tbl_productWhereInput = {
-    AND?: tbl_productWhereInput | tbl_productWhereInput[]
-    OR?: tbl_productWhereInput[]
-    NOT?: tbl_productWhereInput | tbl_productWhereInput[]
-    pno?: BigIntFilter<"tbl_product"> | bigint | number
-    del_flag?: BoolFilter<"tbl_product"> | boolean
-    pdesc?: StringNullableFilter<"tbl_product"> | string | null
-    pname?: StringNullableFilter<"tbl_product"> | string | null
-    price?: IntFilter<"tbl_product"> | number
-  }
-
-  export type tbl_productOrderByWithRelationInput = {
-    pno?: SortOrder
-    del_flag?: SortOrder
-    pdesc?: SortOrderInput | SortOrder
-    pname?: SortOrderInput | SortOrder
-    price?: SortOrder
-    _relevance?: tbl_productOrderByRelevanceInput
-  }
-
-  export type tbl_productWhereUniqueInput = Prisma.AtLeast<{
-    pno?: bigint | number
-    AND?: tbl_productWhereInput | tbl_productWhereInput[]
-    OR?: tbl_productWhereInput[]
-    NOT?: tbl_productWhereInput | tbl_productWhereInput[]
-    del_flag?: BoolFilter<"tbl_product"> | boolean
-    pdesc?: StringNullableFilter<"tbl_product"> | string | null
-    pname?: StringNullableFilter<"tbl_product"> | string | null
-    price?: IntFilter<"tbl_product"> | number
-  }, "pno">
-
-  export type tbl_productOrderByWithAggregationInput = {
-    pno?: SortOrder
-    del_flag?: SortOrder
-    pdesc?: SortOrderInput | SortOrder
-    pname?: SortOrderInput | SortOrder
-    price?: SortOrder
-    _count?: tbl_productCountOrderByAggregateInput
-    _avg?: tbl_productAvgOrderByAggregateInput
-    _max?: tbl_productMaxOrderByAggregateInput
-    _min?: tbl_productMinOrderByAggregateInput
-    _sum?: tbl_productSumOrderByAggregateInput
-  }
-
-  export type tbl_productScalarWhereWithAggregatesInput = {
-    AND?: tbl_productScalarWhereWithAggregatesInput | tbl_productScalarWhereWithAggregatesInput[]
-    OR?: tbl_productScalarWhereWithAggregatesInput[]
-    NOT?: tbl_productScalarWhereWithAggregatesInput | tbl_productScalarWhereWithAggregatesInput[]
-    pno?: BigIntWithAggregatesFilter<"tbl_product"> | bigint | number
-    del_flag?: BoolWithAggregatesFilter<"tbl_product"> | boolean
-    pdesc?: StringNullableWithAggregatesFilter<"tbl_product"> | string | null
-    pname?: StringNullableWithAggregatesFilter<"tbl_product"> | string | null
-    price?: IntWithAggregatesFilter<"tbl_product"> | number
-  }
 
   export type tbl_sample_userWhereInput = {
     AND?: tbl_sample_userWhereInput | tbl_sample_userWhereInput[]
@@ -3979,7 +2895,7 @@ export namespace Prisma {
     AND?: tbl_todoWhereInput | tbl_todoWhereInput[]
     OR?: tbl_todoWhereInput[]
     NOT?: tbl_todoWhereInput | tbl_todoWhereInput[]
-    tno?: BigIntFilter<"tbl_todo"> | bigint | number
+    tno?: IntFilter<"tbl_todo"> | number
     complete?: BoolFilter<"tbl_todo"> | boolean
     due_date?: DateTimeNullableFilter<"tbl_todo"> | Date | string | null
     title?: StringNullableFilter<"tbl_todo"> | string | null
@@ -3996,7 +2912,7 @@ export namespace Prisma {
   }
 
   export type tbl_todoWhereUniqueInput = Prisma.AtLeast<{
-    tno?: bigint | number
+    tno?: number
     AND?: tbl_todoWhereInput | tbl_todoWhereInput[]
     OR?: tbl_todoWhereInput[]
     NOT?: tbl_todoWhereInput | tbl_todoWhereInput[]
@@ -4023,67 +2939,11 @@ export namespace Prisma {
     AND?: tbl_todoScalarWhereWithAggregatesInput | tbl_todoScalarWhereWithAggregatesInput[]
     OR?: tbl_todoScalarWhereWithAggregatesInput[]
     NOT?: tbl_todoScalarWhereWithAggregatesInput | tbl_todoScalarWhereWithAggregatesInput[]
-    tno?: BigIntWithAggregatesFilter<"tbl_todo"> | bigint | number
+    tno?: IntWithAggregatesFilter<"tbl_todo"> | number
     complete?: BoolWithAggregatesFilter<"tbl_todo"> | boolean
     due_date?: DateTimeNullableWithAggregatesFilter<"tbl_todo"> | Date | string | null
     title?: StringNullableWithAggregatesFilter<"tbl_todo"> | string | null
     writer?: StringNullableWithAggregatesFilter<"tbl_todo"> | string | null
-  }
-
-  export type tbl_productCreateInput = {
-    pno?: bigint | number
-    del_flag: boolean
-    pdesc?: string | null
-    pname?: string | null
-    price: number
-  }
-
-  export type tbl_productUncheckedCreateInput = {
-    pno?: bigint | number
-    del_flag: boolean
-    pdesc?: string | null
-    pname?: string | null
-    price: number
-  }
-
-  export type tbl_productUpdateInput = {
-    pno?: BigIntFieldUpdateOperationsInput | bigint | number
-    del_flag?: BoolFieldUpdateOperationsInput | boolean
-    pdesc?: NullableStringFieldUpdateOperationsInput | string | null
-    pname?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type tbl_productUncheckedUpdateInput = {
-    pno?: BigIntFieldUpdateOperationsInput | bigint | number
-    del_flag?: BoolFieldUpdateOperationsInput | boolean
-    pdesc?: NullableStringFieldUpdateOperationsInput | string | null
-    pname?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type tbl_productCreateManyInput = {
-    pno?: bigint | number
-    del_flag: boolean
-    pdesc?: string | null
-    pname?: string | null
-    price: number
-  }
-
-  export type tbl_productUpdateManyMutationInput = {
-    pno?: BigIntFieldUpdateOperationsInput | bigint | number
-    del_flag?: BoolFieldUpdateOperationsInput | boolean
-    pdesc?: NullableStringFieldUpdateOperationsInput | string | null
-    pname?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type tbl_productUncheckedUpdateManyInput = {
-    pno?: BigIntFieldUpdateOperationsInput | bigint | number
-    del_flag?: BoolFieldUpdateOperationsInput | boolean
-    pdesc?: NullableStringFieldUpdateOperationsInput | string | null
-    pname?: NullableStringFieldUpdateOperationsInput | string | null
-    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type tbl_sample_userCreateInput = {
@@ -4136,7 +2996,6 @@ export namespace Prisma {
   }
 
   export type tbl_todoCreateInput = {
-    tno?: bigint | number
     complete: boolean
     due_date?: Date | string | null
     title?: string | null
@@ -4144,7 +3003,7 @@ export namespace Prisma {
   }
 
   export type tbl_todoUncheckedCreateInput = {
-    tno?: bigint | number
+    tno?: number
     complete: boolean
     due_date?: Date | string | null
     title?: string | null
@@ -4152,7 +3011,6 @@ export namespace Prisma {
   }
 
   export type tbl_todoUpdateInput = {
-    tno?: BigIntFieldUpdateOperationsInput | bigint | number
     complete?: BoolFieldUpdateOperationsInput | boolean
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4160,7 +3018,7 @@ export namespace Prisma {
   }
 
   export type tbl_todoUncheckedUpdateInput = {
-    tno?: BigIntFieldUpdateOperationsInput | bigint | number
+    tno?: IntFieldUpdateOperationsInput | number
     complete?: BoolFieldUpdateOperationsInput | boolean
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4168,7 +3026,7 @@ export namespace Prisma {
   }
 
   export type tbl_todoCreateManyInput = {
-    tno?: bigint | number
+    tno?: number
     complete: boolean
     due_date?: Date | string | null
     title?: string | null
@@ -4176,7 +3034,6 @@ export namespace Prisma {
   }
 
   export type tbl_todoUpdateManyMutationInput = {
-    tno?: BigIntFieldUpdateOperationsInput | bigint | number
     complete?: BoolFieldUpdateOperationsInput | boolean
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4184,27 +3041,26 @@ export namespace Prisma {
   }
 
   export type tbl_todoUncheckedUpdateManyInput = {
-    tno?: BigIntFieldUpdateOperationsInput | bigint | number
+    tno?: IntFieldUpdateOperationsInput | number
     complete?: BoolFieldUpdateOperationsInput | boolean
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: NullableStringFieldUpdateOperationsInput | string | null
     writer?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -4222,133 +3078,9 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
-  }
-
-  export type tbl_productOrderByRelevanceInput = {
-    fields: tbl_productOrderByRelevanceFieldEnum | tbl_productOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type tbl_productCountOrderByAggregateInput = {
-    pno?: SortOrder
-    del_flag?: SortOrder
-    pdesc?: SortOrder
-    pname?: SortOrder
-    price?: SortOrder
-  }
-
-  export type tbl_productAvgOrderByAggregateInput = {
-    pno?: SortOrder
-    price?: SortOrder
-  }
-
-  export type tbl_productMaxOrderByAggregateInput = {
-    pno?: SortOrder
-    del_flag?: SortOrder
-    pdesc?: SortOrder
-    pname?: SortOrder
-    price?: SortOrder
-  }
-
-  export type tbl_productMinOrderByAggregateInput = {
-    pno?: SortOrder
-    del_flag?: SortOrder
-    pdesc?: SortOrder
-    pname?: SortOrder
-    price?: SortOrder
-  }
-
-  export type tbl_productSumOrderByAggregateInput = {
-    pno?: SortOrder
-    price?: SortOrder
-  }
-
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type StringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type tbl_sample_userOrderByRelevanceInput = {
@@ -4394,6 +3126,40 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -4445,6 +3211,30 @@ export namespace Prisma {
     tno?: SortOrder
   }
 
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -4459,20 +3249,20 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4483,28 +3273,19 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringFilter<$PrismaModel> | string
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -4522,6 +3303,24 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -4531,41 +3330,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -4597,6 +3361,22 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -4613,48 +3393,23 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type NestedStringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringFilter<$PrismaModel> | string
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {

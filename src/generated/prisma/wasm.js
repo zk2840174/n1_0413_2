@@ -117,14 +117,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.Tbl_productScalarFieldEnum = {
-  pno: 'pno',
-  del_flag: 'del_flag',
-  pdesc: 'pdesc',
-  pname: 'pname',
-  price: 'price'
-};
-
 exports.Prisma.Tbl_sample_userScalarFieldEnum = {
   uid: 'uid',
   email: 'email',
@@ -150,11 +142,6 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
-exports.Prisma.tbl_productOrderByRelevanceFieldEnum = {
-  pdesc: 'pdesc',
-  pname: 'pname'
-};
-
 exports.Prisma.tbl_sample_userOrderByRelevanceFieldEnum = {
   uid: 'uid',
   email: 'email',
@@ -169,7 +156,6 @@ exports.Prisma.tbl_todoOrderByRelevanceFieldEnum = {
 
 
 exports.Prisma.ModelName = {
-  tbl_product: 'tbl_product',
   tbl_sample_user: 'tbl_sample_user',
   tbl_todo: 'tbl_todo'
 };
