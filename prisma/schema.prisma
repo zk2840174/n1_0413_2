@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model product_image_list {
+  product_pno BigInt
+  file_name   String?     @db.VarChar(255)
+  ord         Int?
+  tbl_product tbl_product @relation(fields: [product_pno], references: [pno], onUpdate: Restrict, map: "FKfqvvs4dg13jiki1fur4s3qa43")
+
+  @@index([product_pno], map: "FKfqvvs4dg13jiki1fur4s3qa43")
+  @@ignore
+}
+
+model tbl_product {
+  pno                BigInt               @id @default(autoincrement())
+  del_flag           Boolean              @db.Bit(1)
+  pdesc              String?              @db.VarChar(255)
+  pname              String?              @db.VarChar(255)
+  price              Int
+  product_image_list product_image_list[] @ignore
+}
+
+model tbl_sample_user {
+  uid   String  @id @db.VarChar(255)
+  email String? @db.VarChar(255)
+  uname String? @db.VarChar(255)
+  upw   String? @db.VarChar(255)
+}
+
+model tbl_todo {
+  tno      BigInt    @id @default(autoincrement())
+  complete Boolean   @db.Bit(1)
+  due_date DateTime? @db.Date
+  title    String?   @db.VarChar(255)
+  writer   String?   @db.VarChar(255)
+}
