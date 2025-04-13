@@ -24,7 +24,9 @@ function PagingComponent({page,size,total, dest}: {page: number, size: number, t
                     </li>
                 )}
 
-                {next && <li key={end + 1} className='m-2 p-2 bg-gray-100 rounded-md'>Next</li> }
+                {next && <li key={end + 1} className='m-2 p-2 bg-gray-100 rounded-md'>
+                    <Link href={`${dest}?page=${end + 1}&size=${size}`}>Next</Link>
+                </li> }
             </ul>
 
         </div>

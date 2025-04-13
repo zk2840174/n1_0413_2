@@ -44,7 +44,7 @@ export function makePageDate( page: string | number | undefined,
     }
 
     const prev = start !== 1
-    const next = end < pageCount
+    const next = (end * safeSize) < total
 
 
     const pageNums = Array.from({ length: pageCount }).map((_, i) => i+1);
